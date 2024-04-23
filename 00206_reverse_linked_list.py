@@ -13,11 +13,10 @@ class ListNode:
         # Build a concise string representation (similar to default behavior)
         return "Value: %s\n Next's Value: %s" % (self.val, self.next.val)
 
-def reverseList(head: Optional[ListNode]) -> Optional[ListNode]:
+def reverseListIterative(head: Optional[ListNode]) -> Optional[ListNode]:
 
     prev: ListNode = None
     current_node: ListNode = head
-
 
     while current_node:
 
@@ -33,10 +32,32 @@ def reverseList(head: Optional[ListNode]) -> Optional[ListNode]:
 
     return prev
 
+
+def reverseListRecursive(head: Optional[ListNode]) -> Optional[ListNode]:
+
+    def reverse(cur: Optional[ListNode], prev: Optional[ListNode]) -> Optional[ListNode]:
+
+        # Base case
+        if cur is None:
+            return prev
+        
+        else:
+            next = cur.next
+            cur.next = prev
+            return reverse(next, cur)
+
+    return reverse(head, None)
+
+
+
 node_5: ListNode = ListNode(val=5)
 node_4: ListNode = ListNode(val=4, next=node_5)
 node_3: ListNode = ListNode(val=3, next=node_4)
 node_2: ListNode = ListNode(val=2, next=node_3)
 node_1: ListNode = ListNode(val=1, next=node_2)
 
-result: ListNode = reverseList(node_1)
+result: ListNode = reverseListRecursive(node_1)
+result2 = reverseListRecursive(None)
+
+import pdb
+pdb.set_trace()
