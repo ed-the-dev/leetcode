@@ -58,6 +58,3 @@ node_1: ListNode = ListNode(val=1, next=node_2)
 
 result: ListNode = reverseListRecursive(node_1)
 result2 = reverseListRecursive(None)
-
-import pdb
-pdb.set_trace()
