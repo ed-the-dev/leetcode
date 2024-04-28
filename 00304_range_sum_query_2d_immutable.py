@@ -24,11 +24,17 @@ class NumMatrix:
 
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
 
+
+        # Sum of everything from lower right square
         lower_right: int = self.prefix_matrix[row2][col2]
 
+        # Sum of everything from the one to the left of bottom left to (0,0)
         lhs: int = self.prefix_matrix[row2][col1-1] if col1 > 0 else 0
+
+        # Sum of everything from one above the top right to (0,0)
         top: int = self.prefix_matrix[row1-1][col2] if row1 > 0 else 0
 
+        # Sum of everything one off the top left to (0,0)
         upper_left = self.prefix_matrix[row1-1][col1-1] if min(col1, row1) > 0 else 0
 
         return lower_right - (lhs+top-upper_left )
