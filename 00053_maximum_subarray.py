@@ -20,4 +20,4 @@ class Solution:
 
 solution: Solution = Solution()
 
-print(solution.maxSubArray([5,4,-1,7,8]))
+print(solution.maxSubArray([-3,-2,-3]))
