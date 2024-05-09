@@ -9,9 +9,28 @@ class TreeNode:
 
 class Solution:
 
+    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+
+        stack: list[TreeNode] = []
+        curr: TreeNode = root
+        result: list[int] = []
+
+        while curr or stack:
+
+            if curr:
+                stack.append(curr)
+                curr = curr.left
+            else:
+                curr = stack.pop()
+                result.append(curr.val)
+                curr = curr.right
+        
+        return result
+
+
     # 'Trivial' recursive solution.
 
-    def inorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    def inorderTraversalRecursive(self, root: Optional[TreeNode]) -> List[int]:
 
         result: list[int] = []
 
