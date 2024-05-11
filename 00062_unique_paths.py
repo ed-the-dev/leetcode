@@ -13,8 +13,6 @@ class Solution:
             
             dp = new_dp
 
-            print(dp)
-
         return dp[0]
 
 solution: Solution = Solution()
